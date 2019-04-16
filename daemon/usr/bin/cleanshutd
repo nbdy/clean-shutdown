@@ -27,6 +27,7 @@ poweroff_pin=off
 hold_time=1
 shutdown_delay=0
 polling_rate=1
+pipe_file="/tmp/cleanshutd"
 
 if [ -f /etc/cleanshutd.conf ]; then
     source /etc/cleanshutd.conf
@@ -83,12 +84,15 @@ daemon="on"
 while true; do
     while [ "$daemon" = "on" ]; do
         if shutdown_trigger; then
+            echo "1" > /tmp/cleanshutd
             msg="BCM $trigger_pin held low, system shutdown in $shutdown_delay minutes"
             echo $msg
             wall $msg
             daemon="off"
             shutdown -h +$shutdown_delay
             break
+        else
+            echo "0" > /tmp/cleanshutd
         fi
         sleep $polling_rate
     done
