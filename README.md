@@ -1,7 +1,9 @@
 ## this creates a file called /tmp/cleanshutd
+it's meant to be used with the [LiPo SHIM](https://shop.pimoroni.com/products/lipo-shim)<br>
 ## contents are:
 - 0 if everything is alright
 - 1 if the pi is about to shutdown
+<br>
 this way other programs can monitor this file and check if they have to internally shut down <br>
 
 # clean-shutdown
