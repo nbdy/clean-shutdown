@@ -1,3 +1,8 @@
+## install
+```
+./setup.sh zerolipo
+```
+
 ## this creates a file called /tmp/cleanshutd
 it's meant to be used with the [LiPo SHIM](https://shop.pimoroni.com/products/lipo-shim)<br>
 ## contents are:
